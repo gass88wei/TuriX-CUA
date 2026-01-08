@@ -187,6 +187,16 @@ Edit API in `examples/config.json`:
    }
 ```
 
+For a local Ollama setup, use a vision-capable model and point to your Ollama server:
+```json
+"llm": {
+      "provider": "ollama",
+      "model_name": "llama3.2-vision",
+      "base_url": "http://localhost:11434"
+   }
+```
+Apply the same for `planner_llm` if you want it to use Ollama too.
+
 #### 4.3 Configure Custom Models (Optional)
 
 If you want to use other models not defined by the build_llm function in the main.py, you need to first define it, then setup the config.
@@ -199,7 +209,7 @@ if provider == "name_you_want":
             model="gpt-4.1-mini", api_key=api_key, temperature=0.3
         )
 ```
-Switch between ChatOpenAI, ChatGoogleGenerativeAI and ChatAnthropic base on your llm. Also change the model name.
+Switch between ChatOpenAI, ChatGoogleGenerativeAI, ChatAnthropic, or ChatOllama based on your llm. Also change the model name.
 
 #### 4.4 Start the Agent
 

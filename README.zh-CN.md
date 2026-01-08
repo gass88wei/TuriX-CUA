@@ -186,6 +186,16 @@ osascript -e 'tell application "Safari" to do JavaScript "alert("Triggering acce
    }
 ```
 
+如果要使用本地 Ollama，请选择支持视觉的模型，并指向你的 Ollama 服务：
+```json
+"llm": {
+      "provider": "ollama",
+      "model_name": "llama3.2-vision",
+      "base_url": "http://localhost:11434"
+   }
+```
+若希望 planner_llm 也使用 Ollama，请同样配置。
+
 #### 4.3 配置自定义模型（可选）
 
 如果你想使用 build_llm 函数中未定义的其他模型，需要先在代码中定义，再在配置中设置。
@@ -198,7 +208,7 @@ if provider == "name_you_want":
             model="gpt-4.1-mini", api_key=api_key, temperature=0.3
         )
 ```
-请根据你的 LLM 在 ChatOpenAI、ChatGoogleGenerativeAI 与 ChatAnthropic 之间切换，并修改对应的模型名称。
+请根据你的 LLM 在 ChatOpenAI、ChatGoogleGenerativeAI、ChatAnthropic 或 ChatOllama 之间切换，并修改对应的模型名称。
 
 #### 4.4 启动Agent
 
